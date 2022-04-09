@@ -16,6 +16,7 @@ void ThietBi::xuat()
 int ThietBi::setTrangThai(TrangThai trangThai)
 {
     trangThai = m_TrangThai;
+    return 1;
 }
 
 TrangThai ThietBi::getTrangThai()
@@ -27,6 +28,7 @@ TrangThai ThietBi::getTrangThai()
 int ThietBi::setTenThietBi(std::string tenThietBi)
 {
     tenThietBi = m_TenThietBi;
+    return 1;
 }
 
 std::string ThietBi::getTenThietBi()

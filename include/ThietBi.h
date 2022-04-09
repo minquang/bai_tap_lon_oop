@@ -1,10 +1,9 @@
 #ifndef THIETBI_H
 #define THIETBI_H
 
-#include <iostream>
-#include <string>
+#include "pch.h"
 
-enum class TrangThai {hoatDong, nghi};
+enum class TrangThai {bat, tat};
 
 class ThietBi {
     public:
