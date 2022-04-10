@@ -1,7 +1,8 @@
-#include <iostream>
-
-#include <ThietBi.h>
+#include <Application.h>
 
 main() {
-    std::cout << "hello world" << std::endl;
+    Application app;
+    app.run();
+
+    return 0;
 }
