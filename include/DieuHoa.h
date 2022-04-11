@@ -5,18 +5,18 @@
 #include "ThietBi.h"
 
 class DieuHoa : public ThietBi {
-    private:
+    public:
         DieuHoa() {}
-        DieuHoa(std::string tenDieuHoa, int nhietDo) : ThietBi(tenDieuHoa, TrangThai::tat) 
+        DieuHoa(std::string tenDieuHoa, int nhietDo, int maThietBi) : ThietBi(tenDieuHoa, TrangThai::tat, maThietBi) 
         {
-            nhietDo = m_NhietDo;
+            m_NhietDo = nhietDo;
         }
         ~DieuHoa() {}
     
-        void setNhietDo(int nhietDo);
+        int setNhietDo(int nhietDo);
         int getNhietDo();
-    public:
-        int m_NhietDo;
+    private:
+        float m_NhietDo;
 };
 
 #endif

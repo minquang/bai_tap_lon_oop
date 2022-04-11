@@ -3,13 +3,16 @@
 
 #include "pch.h"
 
+#include <vector>
+#include <memory>
+
 enum class TrangThai {bat, tat};
 
 class ThietBi {
     public:
         ThietBi() {}
-        ThietBi(std::string tenThietBi, TrangThai trangThai) : m_TenThietBi(tenThietBi), m_TrangThai(trangThai) {}
-        ~ThietBi() {}
+        ThietBi(std::string tenThietBi, TrangThai trangThai, int maThietBi) : m_TenThietBi(tenThietBi), m_TrangThai(trangThai), m_MaThietBi(maThietBi) {}
+        virtual ~ThietBi() {}
 
         void nhap();
         void xuat();
@@ -20,9 +23,26 @@ class ThietBi {
         int setTenThietBi(std::string tenThietBi);
         std::string getTenThietBi();
 
-    private:
+        int getMaThietBi() {return m_MaThietBi;}
+
+    protected:
         std::string m_TenThietBi;
         TrangThai m_TrangThai;
+        int m_MaThietBi;
+};
+
+class QLThietBi {
+    public:
+        //QLThietBi(std::vector<ThietBi> &&thietBi) : m_ThietBi(thietBi) {}
+        QLThietBi() {}
+        ~QLThietBi() {}
+
+        void themThietBi(ThietBi thietBi);
+
+        int dieuChinhThietBi(int maThietBi);
+        int thayDoiThongSoThietBi(int maThietBi);
+    private:
+        std::vector<std::shared_ptr<ThietBi>> m_ThietBi;
 };
 
 #endif

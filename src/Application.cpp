@@ -2,13 +2,118 @@
 
 #include <csv.h>
 #include <CsvFile.h>
+#include <cmath>
 
 void Application::run() {
     GiangVien giangVien(m_GiangVien, m_SinhVien, m_BangDiem);
-    giangVien.suaThongTinGiangVien(543263);
-    std::cout << m_GiangVien.get()->at(0).hoTen << std::endl;
-    luuDuLieu();
+    bool isExit = false;
+    int option; //biến lưu lại lựa chọn người dùng
+    do {
+        std::cout <<"___LOP HOC THONG MINH___:" << std::endl
+                <<"1. giang vien" << std::endl
+                <<"2. sinh vien" << std::endl
+                <<"3. van hanh thiet bi" << std::endl
+                <<"4. tu dong dieu khien thiet bi" << std::endl
+                <<"5. luu du lieu" << std::endl
+                <<"6. thoat" << std::endl
+                <<"----------------------------"<< std::endl << std::endl 
+                <<"lua chon: ";
+        std::cin >> option; 
+        switch (option) {
+            case 1:
+                int option_giangvien;
+                bool isExit_giangvien;
+                do {
+                    isExit_giangvien = false;
+                    std::cout << "___GIANG VIEN___" << std::endl 
+                            << "1. Diem danh" << std::endl
+                            << "2. Nhap diem" << std::endl
+                            << "3. Them sinh vien" << std::endl
+                            << "4. Xoa sinh vien" << std::endl
+                            << "5. Chinh sua thong tin sinh vien" << std::endl
+                            << "6. Chinh sua thong tin giao vien" << std::endl
+                            << "7. Quay lai" << std::endl
+                            <<"----------------------------"<< std::endl << std::endl 
+                            <<"lua chon: ";
+                    std::cin >> option_giangvien;
+                    switch(option_giangvien) {
+                        int msv;
+                        int mgv;
+                        case 1:
+                            std::cout << "diem danh" << std::endl;
+                            break;
+                        case 2:
+                            std::cout << "nhap msv" << std::endl;
+                            std::cin >> msv;
+                            giangVien.nhapDiem(msv);
+                            break;
+                        case 3:
+                            std::cout << "nhap msv" << std::endl;
+                            std::cin >> msv;
+                            std::cout << "them sinh vien" << std::endl;
+                            break;
+                        case 4:
+                            std::cout << "nhap msv" << std::endl;
+                            std::cin >> msv;
+                            giangVien.xoaSinhVien(msv);
+                            break;
+                        case 5:
+                            std::cout << "nhap msv" << std::endl;
+                            std::cin >> msv;
+                            giangVien.chinhSuaThongTinSV(msv);
+                            break;
+                        case 6:
+                            std::cout << "nhap mgv" << std::endl;
+                            std::cin >> mgv;
+                            giangVien.suaThongTinGiangVien(mgv);
+                            break;
+                        case 7:
+                            isExit_giangvien = true;
+                            break;
+                        default:
+                            isExit_giangvien = true;
+                            break;
+                    }
+                } while(!isExit_giangvien);
+                
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                int option_vanhanhthietbi;
+                bool isExit_vanhanhthietbi;
+                do {
+                    isExit_vanhanhthietbi = false;
+                    std::cout << "___VAN HANH THIET BI___" << std::endl 
+                            << "1. dieu chinh thiet bi" << std::endl
+                            << "2. chinh sua thiet bi" << std::endl
+                            << "3. Quay lai" << std::endl
+                            <<"----------------------------"<< std::endl << std::endl 
+                            <<"lua chon: ";
+
+                } while(!isExit_vanhanhthietbi);
+                break;
+            case 4:
+                break;
+            case 5:
+                if(luuDuLieu() == 0) {
+                    std::cout << "luu du lieu thanh cong" << std::endl;
+                }
+                else {
+                    std::cout << "luu du lieu that bai" << std::endl;
+                }
+                break;
+            case 6:
+                isExit = true;
+                break;
+            default:
+                isExit = true;
+                break;
+        }
+    } while (!isExit);
 }
+
 
 int Application::nhapDuLieu() {
     io::CSVReader<2> in(DATAPATH "giangvien.csv");
@@ -79,6 +184,7 @@ int Application::luuDuLieu() {
     catch (const std::exception& ex)
     {
         std::cout << "Exception was thrown: " << ex.what() << std::endl;
+        return 1;
     }
     return 0;
 }

@@ -6,11 +6,14 @@
 
 class Camera : public ThietBi {
     public:
-        Camera(std::string tenCam) : ThietBi(tenCam, TrangThai::tat) {}
+        Camera(std::string tenCam, int maThietBi) : ThietBi(tenCam, TrangThai::tat, maThietBi) {}
         Camera() {}
         ~Camera() {}
+        
+        void setDoSang(const float& doSang);
+        float getDoSang() {return m_DoSang;}
     private:
-
+        float m_DoSang;
 };
 
 #endif

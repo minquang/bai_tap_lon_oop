@@ -39,6 +39,7 @@ class GiangVien {
         int xuatDiem();
         int xuatDiem(int msv);
 
+        int themSinhVien(int msv, std::string hoTen);
         int chinhSuaThongTinSV(int msv);
         int xoaSinhVien(int msv);
 
