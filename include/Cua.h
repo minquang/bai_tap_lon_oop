@@ -7,7 +7,8 @@
 class Cua : public ThietBi {
     public:
         Cua() {}
-        Cua(std::string tenCua, int maThietBi) : ThietBi(tenCua, TrangThai::tat, maThietBi) {}
+        Cua(std::string tenCua, int maThietBi, int trangThai)
+         : ThietBi(tenCua, TrangThai::tat, maThietBi) {}
         ~Cua() {}
 
     private:

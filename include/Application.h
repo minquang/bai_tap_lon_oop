@@ -9,6 +9,7 @@
 #include "GiangVien.h"
 #include "BangDiem.h"
 #include "SinhVien.h"
+#include "ThietBi.h"
 
 #define DATAPATH "../data/"
 
@@ -31,6 +32,7 @@ class Application {
         std::shared_ptr<V_GIANGVIEN> m_GiangVien;
         std::shared_ptr<V_SINHVIEN> m_SinhVien;
         std::shared_ptr<V_BANGDIEM> m_BangDiem;
+        QLThietBi m_QLThietBi;
 };
 
 #endif

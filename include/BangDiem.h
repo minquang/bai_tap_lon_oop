@@ -21,9 +21,7 @@ struct ThongTinBangDiem {
             tinhDiemTrungBinh();
         }
 
-    void tinhDiemTrungBinh() {
-        diemTrungBinh = diemChuyenCan*0.1 + diemKiemTra*0.2 + diemThi*0.7;
-    }
+    void tinhDiemTrungBinh();
 };
 
 using V_BANGDIEM = std::vector<ThongTinBangDiem>;

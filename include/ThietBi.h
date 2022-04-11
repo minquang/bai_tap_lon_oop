@@ -33,7 +33,6 @@ class ThietBi {
 
 class QLThietBi {
     public:
-        //QLThietBi(std::vector<ThietBi> &&thietBi) : m_ThietBi(thietBi) {}
         QLThietBi() {}
         ~QLThietBi() {}
 
@@ -41,6 +40,9 @@ class QLThietBi {
 
         int dieuChinhThietBi(int maThietBi);
         int thayDoiThongSoThietBi(int maThietBi);
+        int themThietBi(int maThietBi, std::string tenThietBi, int trangThai, float doSang, float amLuong, int nhietDo);
+
+        std::vector<std::shared_ptr<ThietBi>>& getDL() {return m_ThietBi;}
     private:
         std::vector<std::shared_ptr<ThietBi>> m_ThietBi;
 };

@@ -6,7 +6,7 @@
 
 class Camera : public ThietBi {
     public:
-        Camera(std::string tenCam, int maThietBi) : ThietBi(tenCam, TrangThai::tat, maThietBi) {}
+        Camera(std::string tenCam, int maThietBi, float doSang) : ThietBi(tenCam, TrangThai::tat, maThietBi), m_DoSang(doSang) {}
         Camera() {}
         ~Camera() {}
         

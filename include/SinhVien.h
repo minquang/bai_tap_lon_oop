@@ -23,7 +23,6 @@ class SinhVien {
         ~SinhVien() {}
 
     private:
-        V_SINHVIEN m_SinhVien;
 };
 
 #endif

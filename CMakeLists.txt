@@ -16,6 +16,7 @@ add_executable(bai_tap_lon_oop
     src/Camera.cpp
     src/Cua.cpp
     src/DieuHoa.cpp
+    src/MayChieu.cpp
     src/GiangVien.cpp
     src/SinhVien.cpp
     src/BangDiem.cpp
