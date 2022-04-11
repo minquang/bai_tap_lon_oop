@@ -7,23 +7,31 @@
 #include <memory>
 
 #include "SinhVien.h"
+#include "BangDiem.h"
 
 struct ThongTinGiangVien {
     int mgv;
     std::string hoTen;
 
-    ThongTinGiangVien() {}
+    ThongTinGiangVien() : mgv(0), hoTen("") {}
+    ThongTinGiangVien(int mgv, std::string hoTen) : mgv(mgv), hoTen(hoTen) {}
 };
+
 
 using V_GIANGVIEN = std::vector<ThongTinGiangVien>;
 
 class GiangVien {
     public:
-        GiangVien() {}
-        GiangVien(std::shared_ptr<V_SINHVIEN> sinhVien, std::shared_ptr<V_GIANGVIEN> giangVien) : m_SinhVien(sinhVien), m_GiangVien(giangVien) {}
+        GiangVien() = delete;
+        GiangVien(GiangVien&) = delete;
+        GiangVien(GiangVien&&) = delete;
+        GiangVien(std::shared_ptr<V_GIANGVIEN> giangVien, std::shared_ptr<V_SINHVIEN> sinhVien, std::shared_ptr<V_BANGDIEM> bangDiem) 
+        : m_SinhVien(sinhVien), m_GiangVien(giangVien), m_BangDiem(bangDiem) {}
         ~GiangVien() {}
 
         int setDuLieu();
+
+        int suaThongTinGiangVien(int mgv);
 
         int nhapDiem();
         int nhapDiem(int msv);
@@ -38,6 +46,7 @@ class GiangVien {
         void LuuDuLieu();
         std::shared_ptr<V_SINHVIEN> m_SinhVien;
         std::shared_ptr<V_GIANGVIEN> m_GiangVien;
+        std::shared_ptr<V_BANGDIEM> m_BangDiem;
 };
 
 #endif

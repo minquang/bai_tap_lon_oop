@@ -9,7 +9,10 @@ struct ThongTinSinhVien {
     int msv;
     std::string hoTen;
     int ngaySinh, thangSinh, namSinh;
-    float diemChuyenCan, diemKiemTra, diemThi;
+
+    ThongTinSinhVien() = delete;
+    ThongTinSinhVien(int msv, std::string hoTen, int ngaySinh, int thangSinh, int namSinh) 
+        : msv(msv), hoTen(hoTen), ngaySinh(ngaySinh), thangSinh(thangSinh), namSinh(namSinh) { }
 };
 
 using V_SINHVIEN = std::vector<ThongTinSinhVien>;
